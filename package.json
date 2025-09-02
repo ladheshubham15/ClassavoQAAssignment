@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "cypress": "^14.5.4"
+  },
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test": "npm run cypress:run",
+    "cypress:open:dev": "npx cypress open --env configFile=dev",
+    "cypress:open:qa": "npx cypress open --env configFile=qa",
+    "cypress:open:prod": "npx cypress open --env configFile=staging",
+    "cypress:run:dev" : "npx cypress run --env configFile=dev",
+    "cypress:run:qa" : "npx cypress run --env configFile=qa",
+    "cypress:run:prod" : "npx cypress run --env configFile=staging"
+  }
+}

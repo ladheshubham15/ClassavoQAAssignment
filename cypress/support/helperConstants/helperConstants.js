@@ -1,0 +1,6 @@
+export const COURSE_URL = '/course'
+export const HOME_URL = '/home'
+export const DASHBOARD_URL = '/dashboard'
+export const LOGIN_URL = '/login'
+export const SIGNUP_URL = '/signup'
+export const BILLING_URL = '/billing'

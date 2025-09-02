@@ -1,0 +1,11 @@
+{
+    "baseUrl" : "https://staging-classavo.com/",
+    "studentAEmail": "studentAstaging@gmail.com",
+    "passwordA": "studentA1234",
+    "studentBEmail": "studentBstaging@gmail.com",
+    "passwordB": "studentB1234",
+    "studentCEmail": "studentCstaging@gmail.com",
+    "passwordC": "studentC1234",
+    "restEndpoint": "https://staging-classavo.com/rest",
+    "requestEndPoint": "https://staging-classavo.com/apis/"
+}

@@ -1,0 +1,11 @@
+{
+    "baseUrl" : "https://dev-classavo.com/",
+    "studentAEmail": "studentAdev@gmail.com",
+    "passwordA": "studentA1234",
+    "studentBEmail": "studentBdev@gmail.com",
+    "passwordB": "studentB1234",
+    "studentCEmail": "studentCdev@gmail.com",
+    "passwordC": "studentC1234",
+    "restEndpoint": "https://dev-classavo.com/rest",
+    "requestEndPoint": "https://dev-classavo.com/apis/"
+}
