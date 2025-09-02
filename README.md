@@ -135,6 +135,7 @@ npx cypress run --spec "cypress/e2e/signup_login_joinCourse.cy.js" --env configF
 ## 🛠️ Custom Helpers
 
 - **apiHelperFunctions.js** → API-level interactions (e.g., login via API)
+- **locators.js** → Storage file for locators
 - **uiHelperFunctions.js** → UI workflows (e.g., course join actions)
 - **helperConstants.js** → Test constants and values
 
@@ -144,9 +145,8 @@ npx cypress run --spec "cypress/e2e/signup_login_joinCourse.cy.js" --env configF
 
 -   **Multi-environment support** via `config/` JSON files\
 -   **Custom commands & helper utilities** for reusability\
--   **API + UI test integration** (Cypress intercepts + UI checks)\
--   **Edge case validation** (invalid tokens, duplicate submissions,
-    session expiry, etc.)\
+-   **API + UI test integration** (Cypress intercepts + Mocking + UI checks)\
+-   **Edge case validation** (Blocks access to course without enrollment, handles API timeout gracefully
 -   **Scalable folder structure** (fixtures, locators, API helpers)
 
 ------------------------------------------------------------------------
@@ -155,8 +155,11 @@ npx cypress run --spec "cypress/e2e/signup_login_joinCourse.cy.js" --env configF
 
 ### 🔹 How I Approached the Flow
 - Broke the flow into **modular test cases** (signup, login, join course, edge cases,subscription).  
-- Used **separation of concerns**: API helpers for backend validation, UI helpers for frontend.  
-- Focused on **happy path** first, then **invalid inputs and edge cases**.  
+- Used **separation of concerns**: API helpers for backend validation, UI helpers for frontend.
+- Progressive Coverage – Started with the happy path to establish a working baseline, then expanded to cover negative scenarios and advanced edge cases.
+- Optimization Mindset : Minimized test data dependencies, reused locators/constants, and applied environment-based configs (dev, qa, staging) for flexibility.
+- Scalability in Mind – Structured tests and utilities to make it easy to add new features without rewriting existing flows.
+- Used **Interception and Mocking** for effective backend testing and ensuring we are covering functional flows in efficient way
 
 ### 🔹 Assumptions Made
 - Email confirmation is handled via a test environment mock API (not actual email).  
@@ -194,4 +197,4 @@ Remaining flows (advanced edge cases, UI polish) can be tested manually or added
 ## 👤 Author
 
 **Shubham Ladhe**\
-QA Automation Engineer \| Cypress \| Playwright \| CI/CD
+  Senior SDET
