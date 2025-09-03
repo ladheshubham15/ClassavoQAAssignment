@@ -29,7 +29,7 @@ class ClassavoUIPageFunctions {
     }
 
     navigateToMenuItem(menuOption) {
-        cy.get(`.menuItem:contains("${menuOption}")`).click()
+        helperLoc.getMenuItem(menuOption).click()
     }
 
     verifyCourseTitleVisibleOnPage(courseTitle) {

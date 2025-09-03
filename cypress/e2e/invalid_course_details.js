@@ -24,6 +24,8 @@ describe('Test with invalid course and details', () => {
 
     helperFunc.navigateToMenuItem("My Courses")
 
+    cy.log('Attempt to Join course using invalid credentials')
+
     helperFunc.joinCourse({
       courseName: courseDetails.courseName,
       courseId: courseDetails.courseId

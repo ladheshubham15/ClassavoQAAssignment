@@ -171,12 +171,22 @@ npx cypress run --spec "cypress/e2e/signup_login_joinCourse.cy.js" --env configF
 - Allowed to intercept and mock response
 
 ### 🔹 Strategy: Staging vs Production
-- **Staging** → Focus on **exploratory & destructive testing & functionally e2e well covered regression testing** (invalid inputs, API error simulation, edge cases)[ Automation Testing / Manual Testing].  
-- **Production** → Focus on **smoke/regression tests** (core workflows only, minimal data impact). Avoid destructive tests.  
-- In production, rely more on **monitoring + synthetic transactions** rather than full E2E destructive tests.  
+- **Staging Environment Strategy** → 
+   1. Run the full regression suite covering all core flows (signup, login, join course, subscription, edge cases).
+   2. Use mocked/stubbed services (e.g., email verification API, payment gateway) to simulate real-world behavior.
+   3. Perform destructive testing (invalid inputs, expired licenses, concurrency checks) since staging is safe for breaking scenarios.
+   4. Validate cross-browser compatibility and responsive behavior across devices.
+   5. Seed controlled test data (predefined users, course codes) to ensure repeatable and stable results.
+
+- **Production Environment Strategy** → 
+   1. Run only a critical smoke suite (login, course join, dashboard load, subscription validation).
+   2. Ensure tests are non-destructive (no creation of duplicate users or unnecessary course enrollments).
+   3. Focus on monitoring-like checks: confirm the system is up, endpoints are healthy, and key user actions work.
+   4. Leverage feature flag checks and API health probes via Cypress intercepts for safer validation.
+   5. Sensitive actions (like payments, course deletion, or account changes) are tested only in staging, not in production.
 
 ### 🔹 If I Had Only 1 Day/Week for QA
-I would prioritize automating:  
+I would prioritize automating considering limited sources and bandwidth :  
 1. **Login & Authentication** (since every flow depends on it).  
 2. **Course Join Flow** (main student use case).  
 3. **Start Course Visibility** (critical path to course content).  

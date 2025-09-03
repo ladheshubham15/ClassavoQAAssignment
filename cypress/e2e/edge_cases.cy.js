@@ -23,7 +23,7 @@ describe("Edge cases Tests", () => {
       password: studentPassword
     })
 
-    // Mocking API Response to get failed due to network error
+    cy.log('Mocking API Response to get failed due to network error')
     cy.intercept("POST", "/api/join-course", {
       forceNetworkError: true,
     }).as("joinCourse")
@@ -37,7 +37,7 @@ describe("Edge cases Tests", () => {
   })
 
   it("Blocks access to course dashboard without enrollment", () => {
-    // Student A joins course
+    cy.log('Student A Joins the course')
     apiFunc.apiLogin({
       userEmail: studentEmail,
       password: studentPassword
@@ -52,9 +52,9 @@ describe("Edge cases Tests", () => {
     }).then(joinResp => {
       courseSecret = joinResp.coursesecret
 
-      //student A logs in
+      cy.log('Student A logs out')
       apiFunc.apiLogout()
-      // Student B logs in
+      cy.log('Student B logs in who do not have any enrollment for the course')
       apiFunc.apiLogin({
         userEmail: student2Email,
         password: student2Password

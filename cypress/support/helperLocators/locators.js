@@ -1,5 +1,5 @@
 class ClassavoPageLocators {
-  // ---------- Signup Page ----------
+  //signup
   getSignupEmailField() {
     return cy.get('#useremail')
   }
@@ -20,7 +20,7 @@ class ClassavoPageLocators {
     return cy.contains('.successToast', message)
   }
 
-  // ---------- Login Page ----------
+ //login 
   getLoginEmail() {
     return cy.get('#login-email')
   }
@@ -37,12 +37,12 @@ class ClassavoPageLocators {
     return cy.contains('span', 'Welcome to Classavo');
   }
 
-  // ---------- Navigation ----------
-  getMenuMyCourses() {
-    return cy.get('.menuItem:contains("My Courses")');
+  //Navigation
+  getMenuItem(courseName) {
+    return cy.get(`.menuItem:contains(${courseName})`);
   }
 
-  // ---------- Join Course Modal ----------
+  // Join Course Modal 
   getJoinCourseButton() {
     return cy.get('#joincourseButton');
   }
@@ -63,7 +63,7 @@ class ClassavoPageLocators {
     return cy.get('button[name="join-course-confirm"]');
   }
 
-  // ---------- Course Dashboard ----------
+  //Course Dashboard
   getCourseTitle(title) {
     return cy.contains('h2', title);
   }
